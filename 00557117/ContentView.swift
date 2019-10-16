@@ -10,7 +10,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        NavigationView {
+            NavigationLink(destination: list()){
+            VStack{
+                ScrollView(.horizontal) {
+                               HStack(spacing: 20) {
+                                   
+                                   ForEach(0..<pictures.count) { (index) in
+                Image(pictures[index].name).resizable()
+                    .renderingMode(.original)
+                                }
+                    }
+                }
+                Text("第一季")
+                    .fontWeight(.heavy)
+                    .foregroundColor(Color.red)
+                    .multilineTextAlignment(.trailing)
+            
+                }
+            }
+        .navigationBarTitle("天才麻將少女")
+        }
     }
 }
 
